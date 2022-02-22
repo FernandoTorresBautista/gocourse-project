@@ -35,7 +35,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error intentando realizar el registro de usuario "+err.Error(), 400)
 		return
 	}
-	if status == false {
+	if !status {
 		http.Error(w, "Error insertano el registro del usuario", 400)
 		return
 	}

@@ -17,6 +17,8 @@ func Handlers() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/registro", middlew.CheckBD(routers.Register)).Methods("POST")
+	router.HandleFunc("/login", middlew.CheckBD(routers.Login)).Methods("POST")
+	router.HandleFunc("/verperfil", middlew.CheckBD(middlew.ValidateJWT(routers.VerPerfil))).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
