@@ -20,7 +20,7 @@ var IDUsuario string
 func ProcessToken(tk string) (*models.Claim, bool, string, error) {
 	myKey := []byte("key_of_jwt_to_sign_the_payload")
 	claims := &models.Claim{}
-	splitToken := strings.Split("tk", "Bearer")
+	splitToken := strings.Split(tk, " ")
 	if len(splitToken) != 2 {
 		return claims, false, string(""), errors.New("formato de token invalido")
 	}
