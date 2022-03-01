@@ -12,7 +12,6 @@ import (
 
 // ReadAllUsers ...
 func ReadAllUsers(ID string, page int64, search, tipo string) ([]*models.Usuario, bool) {
-	fmt.Println("ReadAllUsers...")
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
@@ -42,7 +41,6 @@ func ReadAllUsers(ID string, page int64, search, tipo string) ([]*models.Usuario
 			fmt.Println(err.Error())
 			return results, false
 		}
-		fmt.Println("S::", s)
 
 		var r models.Relation
 		r.UsuarioID = ID

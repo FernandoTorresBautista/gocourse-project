@@ -2,7 +2,6 @@ package routers
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -22,9 +21,7 @@ func ListUsers(w http.ResponseWriter, r *http.Request) {
 	}
 	pag := int64(pagTemp)
 
-	fmt.Println(IDUsuario, pag, search, typeUser)
 	result, status := db.ReadAllUsers(IDUsuario, pag, search, typeUser)
-	fmt.Println(result, status)
 	if !status {
 		http.Error(w, "Error al leer los usuarios", http.StatusBadRequest)
 		return
