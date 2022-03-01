@@ -18,7 +18,6 @@ func ReadTweetsFollowers(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Debe enviar el parámetro página cómo entero mayor a 0", http.StatusBadRequest)
 		return
 	}
-
 	response, ok := db.ReadTweetsFollowers(IDUsuario, page)
 	if !ok {
 		http.Error(w, "Error al leer los tweets", http.StatusBadRequest)
