@@ -27,6 +27,7 @@ func Handlers() {
 	router.HandleFunc("/subirBanner", middlew.CheckBD(middlew.ValidateJWT(routers.UploadBanner))).Methods("POST")
 	router.HandleFunc("/getAvatar", middlew.CheckBD(middlew.ValidateJWT(routers.GetAvatar))).Methods("GET")
 	router.HandleFunc("/getBanner", middlew.CheckBD(middlew.ValidateJWT(routers.GetBanner))).Methods("GET")
+	router.HandleFunc("/altaRelacion", middlew.CheckBD(middlew.ValidateJWT(routers.AddRelation))).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
